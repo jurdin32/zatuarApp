@@ -174,6 +174,7 @@ def post(request, n):
         contador = Comentario.objects.all()
     contexto = {
         "zatuar": Zatuar_marca.objects.all().first(),
+
         "contacto": Contacto_empresa.objects.all().first(),
         "redes": Redes_sociales.objects.all().first(),
         "blog": blogg, "comentarios": preguntas, "respuestas": respuestas, "contador": contador.count(),
