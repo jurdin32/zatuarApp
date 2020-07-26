@@ -1,0 +1,192 @@
+{% extends 'index.html' %}
+<header id="header"
+            data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 45, 'stickySetTop': '-45px', 'stickyChangeLogo': true}">
+        <div class="header-body">
+            <div class="header-container container">
+                <div class="header-row">
+                    <div class="header-column">
+                        <div class="header-row">
+                            <div class="header-logo">
+                                <a href="/">
+                                    <img alt="Zatuar" width="100" height="40" data-sticky-width="82"
+                                         data-sticky-height="40" data-sticky-top="25" src="/media/{{ zatuar.logo }}">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-column justify-content-end">
+                        <div class="header-row pt-3">
+                            <nav class="header-nav-top">
+                                <ul class="nav nav-pills">
+                                    <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
+                                        <span class="ws-nowrap"><i class="fas fa-phone"></i> {{ contacto.celular }}</span>
+                                    </li>
+                                    <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
+                                        <span class="ws-nowrap"><i class="fas fa-phone"></i> {{ contacto.celular2 }}</span>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="header-nav-features">
+                                <div class="header-nav-feature header-nav-features-cart d-inline-flex ml-2">
+                                    <div class="header-nav-features-dropdown" id="headerTopCartDropdown">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-row">
+                            <div class="header-nav pt-1">
+                                <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1">
+                                    <nav class="collapse">
+                                        <ul class="nav nav-pills" id="mainNav">
+                                            {% block menu %}
+                                                <li class=" ">
+                                                    <a href="/">
+                                                        Inicio
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="/empresa/" >
+                                                        Empresa
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="/productos/">
+                                                        Productos
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="/clientes/">
+                                                        Clientes
+                                                    </a>
+                                                </li>
+                                                <li   class="">
+                                                    <a href="/blog/" >
+                                                        Blog
+                                                    </a>
+                                                </li>
+                                                <li style="background-color: #ffffff;" class="">
+                                                    <a href="/contacto/" style="background-color: #F15A29; color:#ffffff ">
+                                                        Contacto
+                                                    </a>
+                                                </li>
+                                            {% endblock %}
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <ul class="header-social-icons social-icons d-none d-sm-block">
+                                    <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank"
+                                                                         title="Facebook"><i
+                                            class="fab fa-facebook-f"></i></a></li>
+                                    <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank"
+                                                                        title="Twitter"><i
+                                            class="fab fa-twitter"></i></a></li>
+                                    <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank"
+                                                                         title="Linkedin"><i
+                                            class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                                <button class="btn header-btn-collapse-nav" data-toggle="collapse"
+                                        data-target=".header-nav-main nav">
+                                    <i class="fas fa-bars"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row py-4">
+            <div class="col-lg-6">
+
+                <div class="overflow-hidden mb-1">
+                    <h2 class="font-weight-normal text-7 mt-2 mb-0 appear-animation" data-appear-animation="maskUp"
+                        data-appear-animation-delay="200"><strong class="font-weight-extra-bold">Contáctanos</strong>
+                    </h2>
+                </div>
+
+                <form class="contact-form" action=""  method="POST">
+                    {% csrf_token %}
+                    <div class="contact-form-success alert alert-success d-none mt-4">
+                        <strong>Enviado!</strong> {{ confirmacion }}.
+                    </div>
+
+                    <div class="contact-form-error alert alert-danger d-none mt-4">
+                        <strong>Error!</strong> {{ error }}.
+                        <span class="mail-error-message text-1 d-block"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-lg-6">
+                            <label class="required font-weight-bold text-dark text-2">Su nombre </label>
+                            <input type="text" value="" data-msg-required="Por favor ingrese su nombre." maxlength="100"
+                                   class="form-control" name="name" required>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="required font-weight-bold text-dark text-2">Su dirección de correo</label>
+                            <input type="email" value="" data-msg-required="Por favor ingrese una dirección de correo electrónico."
+                                   data-msg-email="Please enter a valid email address." maxlength="100"
+                                   class="form-control" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label class="font-weight-bold text-dark text-2">Tema</label>
+                            <input type="text" value="" data-msg-required="Ingrese el Asunto." id="subject" maxlength="100" class="form-control" name="subject" id="subject" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label class="required font-weight-bold text-dark text-2">Mensaje</label>
+                            <textarea maxlength="5000" data-msg-required="Escriba el mensaje." rows="8" class="form-control" name="message" id="message" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <input type="submit" value="Enviar mensaje" class="btn btn-primary btn-modern" data-loading-text="Loading...">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="800">
+                    <h4 class="heading-primary mt-lg"><strong>Zatuar</strong></h4>
+                    <p>Recibe el boletín informativo sobre promociones!</p>
+
+                    <hr>
+
+                    <h4 class="heading-primary">Oficina</h4>
+                    <ul class="list list-icons list-icons-style-3 mt-xlg">
+                        <li><i class="fa fa-map-marker"></i> <strong>Dirección:</strong>{{ contacto.direccion }}</li>
+                        <li><i class="fa fa-phone"></i> <strong>Teléfono:</strong> {{ contacto.celular }}</li>
+                        <li><i class="fa fa-phone"></i> <strong>Teléfono:</strong> {{ contacto.celular2 }}</li>
+                        <li><i class="fa fa-envelope"></i> <strong>Email:</strong> <a
+                                href="{{ contacto.correo }}">{{ contacto.correo }}</a></li>
+                    </ul>
+
+                    <hr>
+
+                </div>
+                <div class="appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="950">
+                    <h4 class="pt-5">Horarios</h4>
+                    <ul class="list list-icons list-dark mt-2">
+                        <li><i class="far fa-clock top-6"></i> Lunes a Viernes -{{ contacto.horario }}</li>
+                        <li><i class="far fa-clock top-6"></i> Sabado - {{ contacto.horariosb }}</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

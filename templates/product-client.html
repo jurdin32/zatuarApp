@@ -1,0 +1,167 @@
+{% extends 'index.html' %}
+{% block metas %}
+    <meta property="og:url" content="https://zatuar.com/clientes/{{ client.id }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="{{ client.nombre_export }}"/>
+    <meta property="og:description" content="{{ client.detalle }}"/>
+    <meta property="og:image" content="https://zatuar.com/media/cliente/{{ client.foto }}"/>
+    <meta property="og:image:width" content="400"/>
+    <meta property="og:image:height" content="300"/>
+{% endblock %}
+<header id="header"
+        data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 45, 'stickySetTop': '-45px', 'stickyChangeLogo': true}">
+    <div class="header-body">
+        <div class="header-container container">
+            <div class="header-row">
+                <div class="header-column">
+                    <div class="header-row">
+                        <div class="header-logo">
+                            <a href="/">
+                                <img alt="Zatuar" width="100" height="40" data-sticky-width="82"
+                                     data-sticky-height="40" data-sticky-top="25" src="/media/{{ zatuar.logo }}">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-column justify-content-end">
+                    <div class="header-row pt-3">
+                        <nav class="header-nav-top">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
+                                    <span class="ws-nowrap"><i class="fas fa-phone"></i> {{ contacto.celular }}</span>
+                                </li>
+                                <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
+                                    <span class="ws-nowrap"><i class="fas fa-phone"></i> {{ contacto.celular2 }}</span>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="header-nav-features">
+                            <div class="header-nav-feature header-nav-features-cart d-inline-flex ml-2">
+                                <div class="header-nav-features-dropdown" id="headerTopCartDropdown">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-row">
+                        <div class="header-nav pt-1">
+                            <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1">
+                                <nav class="collapse">
+                                    <ul class="nav nav-pills" id="mainNav">
+                                        {% block menu %}
+                                            <li class=" ">
+                                                <a href="/">
+                                                    Inicio
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/empresa/">
+                                                    Empresa
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/productos/">
+                                                    Productos
+                                                </a>
+                                            </li>
+                                            <li style="background-color: #ffffff;" class="">
+                                                <a href="/clientes/" style="background-color: #F15A29; color:#ffffff ">
+                                                    Clientes
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/blog/">
+                                                    Blog
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/contacto/">
+                                                    Contacto
+                                                </a>
+                                            </li>
+                                        {% endblock %}
+                                    </ul>
+                                </nav>
+                            </div>
+                            <ul class="header-social-icons social-icons d-none d-sm-block">
+                                <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank"
+                                                                     title="Facebook"><i
+                                        class="fab fa-facebook-f"></i></a></li>
+                                <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank"
+                                                                    title="Twitter"><i
+                                        class="fab fa-twitter"></i></a></li>
+                                <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank"
+                                                                     title="Linkedin"><i
+                                        class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                            <button class="btn header-btn-collapse-nav" data-toggle="collapse"
+                                    data-target=".header-nav-main nav">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+{% block content %}
+    <div class="container py-4">
+
+        <div class="row">
+            <div class="col-md-7 order-2">
+
+                <div style="text-align: center">
+                    <img src="/media/{{ client.client_logo }}" class="img-responsive">
+                </div>
+                <br><br>
+                <p class="lead appear-animation" data-appear-animation="fadeInUpShorter"
+                   data-appear-animation-delay="700">{{ client.detalle }}</p>
+                <div class="row align-items-center appear-animation" data-appear-animation="fadeInUpShorter"
+                     data-appear-animation-delay="1000">
+                    <div class="col-lg-6">
+                        <a href="https://{{ client.facebook }}" class="btn btn-modern btn-primary mt-3">Página Web</a>
+                    </div>
+                    <div class="col-sm-6 text-lg-right my-4 my-lg-0">
+                        <strong class="text-uppercase text-1 mr-3 text-dark">Redes Sociales</strong>
+                        <ul class="social-icons float-lg-right">
+                            <li class="social-icons-facebook"><a href="https://www.facebook.com/{{ client.facebook }}"
+                                                                 target="_blank"
+                                                                 title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li class="social-icons-instagram"><a
+                                    href="https://www.instagram.com/{{ client.instagram }}" target="_blank"
+                                    title="Instagram"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li class="social-icons-twitter"><a href="https://www.twitter.com/{{ client.twitter }}"
+                                                                target="_blank"
+                                                                title="Twitter"><i class="fab fa-twitter"></i></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-5 order-md-2 mb-4 mb-lg-0 appear-animation" data-appear-animation="fadeInRightShorter">
+                <img src="/media/{{ client.foto }}" class="img-fluid" alt="">
+            </div>
+        </div>
+        <br>
+        <div class="owl-carousel owl-theme"
+             data-plugin-options='{"items": 1, "autoplay": true, "autoplayTimeout": 4000}'>
+            {% for gal in galeria_cliente %}
+                <div>
+                    <img src="/media/{{ gal.galeria }}" class="img-responsive">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}
