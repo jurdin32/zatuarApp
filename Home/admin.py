@@ -16,6 +16,7 @@ class Zatuar_marcaAdmin(admin.ModelAdmin):
     list_display_links = Attr(Zatuar_marca)
 
 
+
 class Contacto_empresaAdmin(admin.ModelAdmin):
     list_display = Attr(Contacto_empresa)
     list_display_links = Attr(Contacto_empresa)

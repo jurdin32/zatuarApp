@@ -10,7 +10,7 @@
 
 
 
-{#{% load product_extras %}#}
+{#{% load product_extras  %}#}
 
 
 <header id="header"
@@ -153,8 +153,7 @@
 
                             <div class="summary entry-summary">
 
-                                <h1 style="text-align: center" class="mb-0 font-weight-bold text-7">Blue Ladies
-                                    Handbag</h1>
+                                <h1 style="text-align: center" class="mb-0 font-weight-bold text-7">{{ product.title }} </h1>
 
                                 <div class="pb-0 clearfix">
                                     <div title="Rated 3 out of 5" class="float-left">
@@ -162,16 +161,16 @@
                                                data-plugin-options="{'displayOnly': true, 'color': 'primary', 'size':'xs'}">
                                     </div>
 
-                                    <div class="review-num">
-                                        <span class="count" itemprop="ratingCount">2</span> vistas
-                                    </div>
+{#                                    <div class="review-num">#}
+{#                                        <span class="count" itemprop="ratingCount">2</span> vistas#}
+{#                                    </div>#}
                                 </div>
 
 
                                 <p class="mb-5">{{ product.descripcion }} </p>
 
                                 <p class="price">
-{#                                    <span class="amount">{{ product.precio | price_format }}</span>#}
+                                    <span class="amount">$ {{ product.precio }}</span>
                                 </p>
 
 

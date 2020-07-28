@@ -56,24 +56,31 @@
 
     <!-- Head Libs -->
     <script src="/static/vendor/modernizr/modernizr.min.js"></script>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '293058731812356',
-          xfbml      : true,
-          version    : 'v7.0'
-        });
-        FB.AppEvents.logPageView();
-      };
 
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "https://connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '293058731812356',
+                xfbml: true,
+                version: 'v7.0'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
+
     <meta property="fb:app_id" content="293058731812356"/>
     {% block metas %}
         <meta property="og:url" content="https://zatuar.com"/>
@@ -123,14 +130,14 @@
                             <nav class="header-nav-top">
                                 <ul class="nav nav-pills">
 
-{#                                    <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">#}
-{#                                        <span class="ws-nowrap"><i#}
-{#                                                class="fas fa-phone"></i> {{ contacto.celular }}</span>#}
-{#                                    </li>#}
-{#                                    <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">#}
-{#                                        <span class="ws-nowrap"><i#}
-{#                                                class="fas fa-phone"></i> {{ contacto.celular2 }}</span>#}
-{#                                    </li>#}
+                                    {#                                    <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">#}
+                                    {#                                        <span class="ws-nowrap"><i#}
+                                    {#                                                class="fas fa-phone"></i> {{ contacto.celular }}</span>#}
+                                    {#                                    </li>#}
+                                    {#                                    <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">#}
+                                    {#                                        <span class="ws-nowrap"><i#}
+                                    {#                                                class="fas fa-phone"></i> {{ contacto.celular2 }}</span>#}
+                                    {#                                    </li>#}
                                 </ul>
                             </nav>
                             <div class="header-nav-features">
@@ -189,8 +196,9 @@
                                     <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank"
                                                                         title="Twitter"><i
                                             class="fab fa-twitter"></i></a></li>
-                                    <li class="social-icons-instagram"><a href="http://www.instagram.com/" target="_blank"
-                                                                         title="Instagram"><i
+                                    <li class="social-icons-instagram"><a href="http://www.instagram.com/"
+                                                                          target="_blank"
+                                                                          title="Instagram"><i
                                             class="fab fa-instagram"></i></a></li>
                                 </ul>
                                 <button class="btn header-btn-collapse-nav" data-toggle="collapse"
@@ -421,7 +429,24 @@
                         </div>
                     </div>
                 </section>
+                <div class="row align-items-center py-5 appear-animation" data-appear-animation="fadeInRightShorter">
+                    <div class="col-md-8 pr-md-5 mb-5 mb-md-0">
+                        <h2 style="text-align: center" class="font-weight-normal text-6 mb-3"><strong
+                                class="font-weight-extra-bold">CATÁLOGO</strong></h2>
+                        <p style="text-align: center" class="text-4">Descargue nuestro Catálogo de productos</p>
+                        <div style="text-align: center">
+                            <a href="/media/{{ catalogo.archivo }}" target="_blank">
+                                <button type="button" class="btn btn-modern btn-rounded btn-primary mb-2">Descargar
+                                </button>
+                            </a>
+                        </div>
 
+
+                    </div>
+                    <div class="col-md-4 px-5 px-md-3">
+                        <img class="img-fluid scale-2 my-4" src="/media/{{ catalogo.img }}" alt="style switcher"/>
+                    </div>
+                </div>
 
                 <hr>
                 <div class="container">
@@ -471,13 +496,13 @@
 
                 <ul class="social-icons social-icons-big social-icons-dark-2">
                     <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank"
-                                                        title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                                         title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
 
                     <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank"
                                                         title="Twitter"><i class="fab fa-twitter"></i></a></li>
 
                     <li class="social-icons-instagram"><a href="http://www.instagram.com/" target="_blank"
-                                                        title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                                                          title="Instagram"><i class="fab fa-instagram"></i></a></li>
                 </ul>
             </div>
             <div class="copyright bg-dark py-4">
