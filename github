@@ -1,6 +1,7 @@
 para inicializar git init
 para agregar nuevos archivos o cuando cambias archivos git add .
 para agregar la ruta a donde subes los proyectos es con git remote add origin git@github.com:nombre_proyecto
+
 siempre que se haga un git add . tiens que hacer un git commit -m "cambio que se realizo"
 para subir los cambios git push origin master
 usuario: jurdin32
